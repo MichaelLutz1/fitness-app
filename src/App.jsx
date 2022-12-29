@@ -1,9 +1,9 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { fbApp } from "./firebase";
 
 function App() {
   const [info, setInfo] = useState({});
-
+  console.log(fbApp);
   return (
     <div>
       <form
