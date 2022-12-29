@@ -2,13 +2,30 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [info, setInfo] = useState({});
 
   return (
     <div>
-      <button onClick={() => setCount((count) => count + 1)}>
-        count is {count}
-      </button>
+      <form
+        onSubmit={(e) => {
+          setInfo((i) => {
+            return { ...i, email: e.target.email.value };
+          });
+          setInfo((i) => {
+            return { ...i, password: e.target.password.value };
+          });
+        }}
+      >
+        Email
+        <input type="text" name="email" />
+        Password
+        <input type="text" name="password" />
+        <input type="submit" />
+      </form>
+      <div>
+        {info.email}
+        {info.password}
+      </div>
     </div>
   );
 }
