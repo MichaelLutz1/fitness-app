@@ -3,10 +3,11 @@ import Home from "./screens/Home";
 import Workout from "./screens/Workout";
 import Exercise from "./screens/Exercise";
 import Login from "./screens/Login";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 function App() {
   return (
-    <>
+    <AuthContextProvider>
       <nav>
         <ul>
           <li>
@@ -29,7 +30,7 @@ function App() {
         <Route path="/Exercise" element={<Exercise />} />
         <Route path="/Login" element={<Login />} />
       </Routes>
-    </>
+    </AuthContextProvider>
   );
 }
 
