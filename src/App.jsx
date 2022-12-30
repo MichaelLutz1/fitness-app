@@ -1,32 +1,35 @@
-import { useState } from "react";
-import { fbApp } from "./firebase";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./screens/Home";
+import Workout from "./screens/Workout";
+import Exercise from "./screens/Exercise";
+import Login from "./screens/Login";
 
 function App() {
-  const [info, setInfo] = useState({});
-  console.log(fbApp);
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          setInfo((i) => {
-            return { ...i, email: e.target.email.value };
-          });
-          setInfo((i) => {
-            return { ...i, password: e.target.password.value };
-          });
-        }}
-      >
-        Email
-        <input type="text" name="email" />
-        Password
-        <input type="text" name="password" />
-        <input type="submit" />
-      </form>
-      <div>
-        {info.email}
-        {info.password}
-      </div>
-    </div>
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"/Workout"}>Workout Page</Link>
+          </li>
+          <li>
+            <Link to={"/Exercise"}>Exercise Page</Link>
+          </li>
+          <li>
+            <Link to={"/Login"}>Login</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Workout" element={<Workout />} />
+        <Route path="/Exercise" element={<Exercise />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
+    </>
   );
 }
 
