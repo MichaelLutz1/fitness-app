@@ -6,11 +6,22 @@ function Login() {
   const context = UserAuth();
   const googleSignIn = context.googleSignIn;
   const signOut = context.signOutUser;
+  const userInfo = (user) => {
+    if (user) {
+      return <h1>Hello {user}</h1>;
+    } else {
+    }
+  };
   return (
     <>
       <h1>Login Page</h1>
       <GoogleButton onClick={() => googleSignIn()} />
-      <h1>{context.user ? context.user : null}</h1>
+      {context.user ? (
+        <>
+          <h1>Hello {context.user.displayName}</h1>
+          <p>User id: {context.user.uid}</p>
+        </>
+      ) : null}
       <button onClick={() => signOut()}>Sign Out</button>
     </>
   );

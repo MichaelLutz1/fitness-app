@@ -14,13 +14,13 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (curUser) => {
-      setUser(curUser && curUser.uid);
+      setUser(curUser);
     });
   }, []);
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((value) => {
-      setUser(value.user.uid);
+      setUser(value.user);
     });
   };
 
