@@ -13,16 +13,12 @@ function Login() {
     }
   };
   return (
-    <>
-      <h1>Login Page</h1>
-      <GoogleButton onClick={() => googleSignIn()} />
-      {context.user ? (
-        <>
-          <h1>Hello {context.user.displayName}</h1>
-          <p>User id: {context.user.uid}</p>
-        </>
-      ) : null}
-    </>
+    <div className="d-flex flex-column align-items-center justify-content-center" style={{height:"100vh"}}>
+      <div>
+      <h1 className="text-center">Login with Google</h1>
+      <GoogleButton className="mx-auto" onClick={() => googleSignIn()} />
+      </div>
+    </div>
   );
 }
 

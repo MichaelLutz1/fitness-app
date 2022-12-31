@@ -15,23 +15,14 @@ function App() {
     <>
       {context.user ? (
         <>
-          <nav>
-            <ul>
-              <li>
-                <Link to={"/Home"}>Home</Link>
-              </li>
-              <li>
-                <Link to={"/Workout"}>Workout Page</Link>
-              </li>
-              <li>
-                <Link to={"/Exercise"}>Exercise Page</Link>
-              </li>
-              <li>
-                <Link to={"/"} onClick={() => context.signOutUser()}>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="navbar-brand">wii fit plus</div>
+                <Link className="mx-3" to={"/Home"}>Home</Link>
+                <Link className="mx-3" to={"/Workout"}>Workout Page</Link>
+                <Link className="mx-3" to={"/Exercise"}>Exercise Page</Link>
+                <Link className="mx-3" to={"/"} onClick={() => context.signOutUser()}>
                   Sign Out
                 </Link>
-              </li>
-            </ul>
           </nav>
         </>
       ) : null}
