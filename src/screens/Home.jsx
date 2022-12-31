@@ -1,5 +1,12 @@
+import { UserAuth } from "../contexts/AuthContext";
+
 function Home() {
-  return <h1>Home page</h1>;
+  const context = UserAuth();
+  return (
+    <>
+      <h1>Home page</h1>
+    </>
+  );
 }
 
 export default Home;

@@ -22,7 +22,6 @@ function Login() {
           <p>User id: {context.user.uid}</p>
         </>
       ) : null}
-      <button onClick={() => signOut()}>Sign Out</button>
     </>
   );
 }
