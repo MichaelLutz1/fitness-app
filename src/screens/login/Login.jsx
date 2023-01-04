@@ -1,6 +1,6 @@
 import { FirebaseError } from "firebase/app";
 import { GoogleButton } from "react-google-button";
-import { UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../../contexts/AuthContext";
 
 function Login() {
   const context = UserAuth();

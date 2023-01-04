@@ -1,4 +1,4 @@
-import { UserAuth } from "../contexts/AuthContext";
+import { UserAuth } from "../../contexts/AuthContext";
 
 function Home() {
   const context = UserAuth();
