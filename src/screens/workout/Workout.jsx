@@ -3,6 +3,7 @@ import { ExerciseCard } from "./ExerciseCard";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
+let newKey = 0;
 function Workout() {
   const [isEditting, setIsEditting] = useState(null);
   const [exercises, setExercises] = useState([]);
@@ -14,20 +15,16 @@ function Workout() {
   //  lastWeight:
   //  }
   function handleClick(name) {
-    setExercises([...exercises, { name: name }]);
+    setExercises([...exercises, { name: name, id: newKey }]);
+    newKey++;
   }
 
   return (
     <>
       <h1>Workout page</h1>
-      {exercises.map((ex, i) => (
-        <ExerciseCard
-          name={ex.name}
-          setIsEditting={setIsEditting}
-          index={i}
-          key={ex.name}
-        >
-          {ex}
+      {exercises.map((ex) => (
+        <ExerciseCard name={ex.name} setIsEditting={setIsEditting} key={ex.id}>
+          {ex.name}
         </ExerciseCard>
       ))}
 
@@ -46,7 +43,7 @@ function Workout() {
               handleClick("Squat");
             }}
           >
-            Shoulder Press
+            Squat
           </Dropdown.Item>
           <Dropdown.Item onClick={() => handleClick("BenchPress")}>
             Bench Press
